@@ -1,1 +1,1 @@
-DOTNET_STARTUP_PROJECT=helloworldApp/helloworldApp.csproj
+DOTNET_STARTUP_PROJECT=helloworldApp/helloworldApp/helloworldApp.csproj
