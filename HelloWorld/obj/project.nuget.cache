@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "iZXMQRid6FaGONAfp1E1a91m9DBBG5FkbLkfJGm2w+erV8o1XWDLj/tUUV+ktjRSpfB7VgopjR6BWLetAor7lA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\karthik\\source\\repos\\amritabindukalpa\\openshift\\HelloWorld\\HelloWorld.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\karthik\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
+  ],
+  "logs": []
+}

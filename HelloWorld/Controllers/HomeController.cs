@@ -1,4 +1,4 @@
-﻿using helloworldApp.Models;
+﻿using HelloWorld.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace helloworldApp.Controllers
+namespace HelloWorld.Controllers
 {
     public class HomeController : Controller
     {

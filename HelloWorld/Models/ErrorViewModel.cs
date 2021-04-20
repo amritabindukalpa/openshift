@@ -1,6 +1,6 @@
 using System;
 
-namespace helloworldApp.Models
+namespace HelloWorld.Models
 {
     public class ErrorViewModel
     {
