@@ -1,24 +1,25 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+#Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
+#For more information, please see https://aka.ms/containercompat
+
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-nanoserver-1903 AS base
 WORKDIR /app
+EXPOSE 80
+EXPOSE 443
 
-# Copy csproj and restore as distinct layers
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-nanoserver-1903 AS build
+WORKDIR /src
+COPY ["HelloWorld.csproj", ""]
+RUN dotnet restore "./HelloWorld.csproj"
+COPY . .
+WORKDIR "/src/."
+RUN dotnet build "HelloWorld.csproj" -c Release -o /app/build
 
-COPY *.csproj ./
+FROM build AS publish
+RUN dotnet publish "HelloWorld.csproj" -c Release -o /app/publish
 
-RUN dotnet restore
-
-# Copy everything else and build
-
-COPY . ./
-
-RUN dotnet publish -c Release -o out
-
-# Build runtime image
-
-FROM microsoft/dotnet:aspnetcore-runtime
-
+FROM base AS final
 WORKDIR /app
-
-COPY --from=build-env /app/out .
-
-ENTRYPOINT ["dotnet", "helloworld.dll"]
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "HelloWorld.dll"]
